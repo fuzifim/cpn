@@ -1,5 +1,6 @@
 @extends('layout')
 @section('title', $company->Title)
+@section('description', $company->Title.' - MST: '.$company->MaSoThue.' - Địa chỉ: '.$company->DiaChiCongTy)
 @section('header')
     @include('header')
 @endsection
