@@ -24,7 +24,23 @@ class IndexController extends Controller
         return view('index',array());
     }
     public function getListCompany(){
-        $dataContent=file_get_contents('https://thongtindoanhnghiep.co/api/company?r=10&p=1');
+        $getCron=DB::table('cron_job')->where('type','insert_company')->first();
+        if(empty($getCron->value)){
+            DB::table('cron_job')->insert([
+                'type'=>'insert_company',
+                'value'=>1000
+            ]);
+            $pageInsert=1000;
+        }else if($getCron->value==1){
+            $pageInsert=1;
+        }else{
+            $pageInsert=$getCron->value;
+            $pageInsertUpdate=$pageInsert-1;
+            DB::table('cron_job')
+                ->where('type','insert_company')
+                ->update(['value' => $pageInsertUpdate]);
+        }
+        $dataContent=file_get_contents('https://thongtindoanhnghiep.co/api/company?r=10&p='.$pageInsert);
         $dataJson=json_decode($dataContent);
         foreach($dataJson->LtsItems as $value){
             $checkExits=DB::table('company')->where('MaSoThue',$value->MaSoThue)->first();
@@ -115,7 +131,7 @@ class IndexController extends Controller
                     'updated_at'=>Carbon::now()->format('Y-m-d H:i:s')
                 );
                 DB::table('company')->insert($array_company );
-                echo $dataCompanyJson->Title.'<p>';
+                echo 'Page: '.$pageInsert.' - '.$dataCompanyJson->Title.'<p>';
             }
         }
     }
