@@ -7,6 +7,13 @@
     <div class="container">
         <div class="row mt-2">
             <div class="col-md-4">
+                <div class="form-group mt-2">
+                    <div class="alert alert-info p-2">
+                        <strong>Cung Cấp đến mọi người ⭐ ⭐ ⭐ ⭐ ⭐</strong>
+                        <p>Đăng tin lên Cung Cấp để cung cấp sản phẩm, dịch vụ kinh doanh đến mọi người hoàn toàn miễn phí! </p>
+                    </div>
+                    <div class="btn-group d-flex" role="group"><a class="btn btn-success w-100" href="https://cungcap.net" target="_blank"><h4>Đăng tin miễn phí</h4></a></div>
+                </div>
                 @if(count($listNew))
                     <ul class="list-group">
                         @foreach($listNew as $company)
