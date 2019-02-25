@@ -11,7 +11,7 @@
                     <ul class="list-group">
                         @foreach($listNew as $company)
                             <li class="list-group-item">
-                                <a href="">{!! $company->Title !!}</a>
+                                <a href="{!! route('view.company',array($company->MaSoThue,str_slug($company->Title))) !!}">{!! $company->Title !!}</a>
                                 <p><small>Add: {!! $company->DiaChiCongTy !!}</small></p>
                             </li>
                         @endforeach
@@ -23,7 +23,7 @@
                     <ul class="list-group">
                         @foreach($listCompany as $company)
                             <li class="list-group-item">
-                                <h3><a href="">{!! $company->Title !!}</a></h3>
+                                <h3><a href="{!! route('view.company',array($company->MaSoThue,str_slug($company->Title))) !!}">{!! $company->Title !!}</a></h3>
                                 <p><small>Add: {!! $company->DiaChiCongTy !!}</small></p>
                                 <p><small>MST: <strong>{!! $company->MaSoThue !!}</strong> - Chủ sỡ hữu: <strong>{!! $company->ChuSoHuu !!}</strong></small></p>
                             </li>

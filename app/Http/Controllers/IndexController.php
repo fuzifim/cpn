@@ -13,11 +13,13 @@ use File;
 use Validator;
 use Carbon\Carbon;
 use DB;
+use Route;
 class IndexController extends Controller
 {
+    public $_parame;
     public function __construct()
     {
-
+        $this->_parame=Route::current()->parameters();
     }
     public function index(Request $request)
     {
@@ -27,6 +29,22 @@ class IndexController extends Controller
             'listNew'=>$listNew,
             'listCompany'=>$listCompany
         ));
+    }
+    public function viewCompany(){
+        if(!empty($this->_parame['mst'])){
+            $company=DB::table('company')->where('MaSoThue',$this->_parame['mst'])->first();
+            if(!empty($company->Title)){
+                $listNew=DB::table('company')->orderBy('updated_at','desc')->take(15)->get();
+                $listRelate=DB::table('company')->where('NganhNgheID',$company->NganhNgheID)
+                    ->where('id','!=',$company->id)
+                    ->take(10)->get();
+                return view('viewCompany',array(
+                    'listNew'=>$listNew,
+                    'company'=>$company,
+                    'listRelate'=>$listRelate
+                ));
+            }
+        }
     }
     public function getListCompany(){
         $getCron=DB::table('cron_job')->where('type','insert_company')->first();
