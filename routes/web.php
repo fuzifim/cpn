@@ -13,3 +13,5 @@
 
 Route::get('/', ['as' => 'home',
     'uses' => 'IndexController@index']);
+Route::get('/getListCompany', ['as' => 'get.list.company',
+    'uses' => 'IndexController@getListCompany']);

@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Follower list')
+@section('title', 'Danh sách công ty')
 @section('header')
     @include('header')
 @endsection
