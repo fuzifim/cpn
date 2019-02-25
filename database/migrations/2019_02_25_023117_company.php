@@ -80,9 +80,14 @@ class Company extends Migration
             $table->string('NganhNgheID',50)->nullable();
             $table->string('NganhNgheTitle',500)->nullable();
             $table->string('NganhNgheTitleAscii',500)->nullable();
-            $table->string('DSNganhNgheKinhDoanh',500)->nullable();
-            $table->string('DSNganhNgheKinhDoanhID',500)->nullable();
-            $table->string('DSMaNganhNgheKinhDoanh',500)->nullable();
+            $table->mediumText('DSNganhNgheKinhDoanh')->nullable();
+            $table->mediumText('DSNganhNgheKinhDoanhID')->nullable();
+            $table->mediumText('DSMaNganhNgheKinhDoanh')->nullable();
+            $table->string('Lv1',50)->nullable();
+            $table->string('Lv2',50)->nullable();
+            $table->string('Lv3',50)->nullable();
+            $table->string('Lv4',50)->nullable();
+            $table->string('Lv5',50)->nullable();
             $table->string('DSNganHang',255)->nullable();
             $table->string('DSNganHangID',255)->nullable();
             $table->string('DSThuePhaiNop',255)->nullable();
