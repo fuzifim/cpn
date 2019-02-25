@@ -21,7 +21,12 @@ class IndexController extends Controller
     }
     public function index(Request $request)
     {
-        return view('index',array());
+        $listNew=DB::table('company')->orderBy('updated_at','desc')->take(15)->get();
+        $listCompany=DB::table('company')->simplePaginate(15);
+        return view('index',array(
+            'listNew'=>$listNew,
+            'listCompany'=>$listCompany
+        ));
     }
     public function getListCompany(){
         $getCron=DB::table('cron_job')->where('type','insert_company')->first();
