@@ -15,8 +15,16 @@
                     <div class="btn-group d-flex" role="group"><a class="btn btn-success w-100" href="https://cungcap.net" target="_blank"><h4>Đăng tin miễn phí</h4></a></div>
                 </div>
                 <div class="form-group mt-2">
-                    <ins class="adsbygoogle" data-ad-client="ca-pub-6739685874678212" data-ad-slot="7536384219" data-ad-format="auto"></ins>
-                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                    <div class="form-group">
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-6739685874678212"
+                             data-ad-slot="7536384219"
+                             data-ad-format="auto"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
                 </div>
                 @if(count($listNew))
                     <ul class="list-group">
@@ -39,8 +47,14 @@
                             <?php $i++;?>
                             @if($i==3 || $i==10)
                                 <div class="form-group mt-2">
-                                    <ins class="adsbygoogle" data-ad-client="ca-pub-6739685874678212" data-ad-slot="7536384219" data-ad-format="auto"></ins>
-                                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                                    <ins class="adsbygoogle"
+                                         style="display:block"
+                                         data-ad-client="ca-pub-6739685874678212"
+                                         data-ad-slot="7536384219"
+                                         data-ad-format="auto"></ins>
+                                    <script>
+                                        (adsbygoogle = window.adsbygoogle || []).push({});
+                                    </script>
                                 </div>
                             @endif
                             <li class="list-group-item">
