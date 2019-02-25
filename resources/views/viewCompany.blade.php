@@ -14,12 +14,12 @@
                         <h6 class="card-subtitle mb-2 text-muted">Tên giao dịch tiếng anh: <strong>{!! $company->TitleEn !!}</strong></h6>
                         <p class="card-text">Địa chỉ công ty: <strong>{!! $company->DiaChiCongTy !!}</strong></p>
                         <p class="card-text">Mã số thuế: <strong>{!! $company->MaSoThue !!}</strong></p>
-                        <p class="card-text">Ngày cấp: {!! $company->NgayCap !!}@if(!empty($company->NgayDongMST)) - Ngày đóng MST: {!! $company->NgayDongMST !!}@endif</p>
+                        <p class="card-text">Ngày cấp: {!! \Carbon\Carbon::parse($company->NgayCap)->format('d-m-Y') !!}@if(!empty($company->NgayDongMST)) - Ngày đóng MST: {!! $company->NgayDongMST !!}@endif</p>
                         @if(!empty($company->DiaChiNhanThongBaoThue))<p class="card-text"><strong>Địa chỉ nhận thông báo thuế:</strong> {!! $company->DiaChiNhanThongBaoThue !!}</p>@endif
-                        @if(!empty($company->NamTaiChinh))<p class="card-text"><strong>Năm tài chính:</strong> {!! $company->NamTaiChinh !!}</p>@endif
+                        @if(!empty($company->NamTaiChinh))<p class="card-text"><strong>Năm tài chính:</strong> {!! \Carbon\Carbon::parse($company->NamTaiChinh)->format('d-m-Y') !!}</p>@endif
                         @if(!empty($company->MaSoHienThoi))<p class="card-text"><strong>Mã số hiện thời:</strong> {!! $company->MaSoHienThoi !!}</p>@endif
-                        @if(!empty($company->NgayNhanToKhai))<p class="card-text"><strong>Ngày nhận tờ khai:</strong> {!! $company->NgayNhanToKhai !!}</p>@endif
-                        @if(!empty($company->NgayBatDauHopDong))<p class="card-text"><strong>Ngày bắt đầu hợp đồng:</strong> {!! $company->NgayBatDauHopDong !!}</p>@endif
+                        @if(!empty($company->NgayNhanToKhai))<p class="card-text"><strong>Ngày nhận tờ khai:</strong> {!! \Carbon\Carbon::parse($company->NgayNhanToKhai)->format('d-m-Y') !!}</p>@endif
+                        @if(!empty($company->NgayBatDauHopDong))<p class="card-text"><strong>Ngày bắt đầu hợp đồng:</strong> {!! \Carbon\Carbon::parse($company->NgayBatDauHopDong)->format('d-m-Y') !!}</p>@endif
                         @if(!empty($company->VonDieuLe))<p class="card-text"><strong>Vốn điều lệ:</strong> {!! $company->VonDieuLe !!}</p>@endif
                         @if(!empty($company->TongSoLaoDong))<p class="card-text"><strong>Tổng số lao động:</strong> {!! $company->TongSoLaoDong !!}</p>@endif
                         @if(!empty($company->CapChuongLoaiKhoan))<p class="card-text"><strong>Cấp chương loại chứng khoán:</strong> {!! $company->CapChuongLoaiKhoan !!}</p>@endif
@@ -41,11 +41,11 @@
                         @if(!empty($company->NoiNopThue_DienThoai))<p class="card-text"><strong>Số điện thoại nơi nộp thuế:</strong> {!! $company->NoiNopThue_DienThoai !!}</p>@endif
                         @if(!empty($company->NoiNopThue_Fax))<p class="card-text"><strong>Số fax nơi nộp thuế:</strong> {!! $company->NoiNopThue_Fax !!}</p>@endif
                         @if(!empty($company->QuyetDinhThanhLap))<p class="card-text"><strong>Quyết định thành lập:</strong> {!! $company->QuyetDinhThanhLap !!}</p>@endif
-                        @if(!empty($company->QuyetDinhThanhLap_NgayCap))<p class="card-text"><strong>Ngày cấp quyết định thành lập:</strong> {!! $company->QuyetDinhThanhLap_NgayCap !!}</p>@endif
+                        @if(!empty($company->QuyetDinhThanhLap_NgayCap))<p class="card-text"><strong>Ngày cấp quyết định thành lập:</strong> {!! \Carbon\Carbon::parse($company->QuyetDinhThanhLap_NgayCap)->format('d-m-Y') !!}</p>@endif
                         @if(!empty($company->QuyetDinhThanhLap_CoQuanCapTitle))<p class="card-text"><strong>Nơi cấp quyết định thành lập:</strong> {!! $company->QuyetDinhThanhLap_CoQuanCapTitle !!}</p>@endif
                         @if(!empty($company->GiayPhepKinhDoanh_CoQuanCapTitle))<p class="card-text"><strong>Cơ quan cấp giấy phép kinh doanh:</strong> {!! $company->GiayPhepKinhDoanh_CoQuanCapTitle !!}</p>@endif
                         @if(!empty($company->GiayPhepKinhDoanh))<p class="card-text"><strong>Giấy phép kinh doanh:</strong> {!! $company->GiayPhepKinhDoanh !!}</p>@endif
-                        @if(!empty($company->GiayPhepKinhDoanh_NgayCap))<p class="card-text"><strong>Ngày cấp giấy phép kinh doanh:</strong> {!! $company->GiayPhepKinhDoanh_NgayCap !!}</p>@endif
+                        @if(!empty($company->GiayPhepKinhDoanh_NgayCap))<p class="card-text"><strong>Ngày cấp giấy phép kinh doanh:</strong> {!! \Carbon\Carbon::parse($company->GiayPhepKinhDoanh_NgayCap)->format('d-m-Y') !!}</p>@endif
                         @if(!empty($company->LoaiHinhTitle))<p class="card-text"><strong>Loại hình hoạt động:</strong> {!! $company->LoaiHinhTitle !!}</p>@endif
                         @if(!empty($company->NganhNgheTitle))<p class="card-text"><strong>Ngành nghề:</strong> {!! $company->NganhNgheTitle !!}</p>@endif
                     </div>
