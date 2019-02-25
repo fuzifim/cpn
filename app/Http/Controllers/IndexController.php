@@ -19,7 +19,7 @@ class IndexController extends Controller
     public $_parame;
     public function __construct()
     {
-        $this->_parame=Route::current()->parameters();
+
     }
     public function index(Request $request)
     {
@@ -30,9 +30,10 @@ class IndexController extends Controller
             'listCompany'=>$listCompany
         ));
     }
-    public function viewCompany(){
-        if(!empty($this->_parame['mst'])){
-            $company=DB::table('company')->where('MaSoThue',$this->_parame['mst'])->first();
+    public function viewCompany(Request $request){
+        $mst = $request->route('mst');
+        if(!empty($mst)){
+            $company=DB::table('company')->where('MaSoThue',$mst)->first();
             if(!empty($company->Title)){
                 $listNew=DB::table('company')->orderBy('updated_at','desc')->take(15)->get();
                 $listRelate=DB::table('company')->where('NganhNgheID',$company->NganhNgheID)

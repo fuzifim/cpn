@@ -12,7 +12,9 @@
                         @foreach($listNew as $company)
                             <li class="list-group-item">
                                 <a href="{!! route('view.company',array($company->MaSoThue,str_slug($company->Title))) !!}">{!! $company->Title !!}</a>
-                                <p><small>Add: {!! $company->DiaChiCongTy !!}</small></p>
+                                <p>
+                                    <small>Add: {!! $company->DiaChiCongTy !!} <br> <span class="text-muted">Cập nhật lúc: {!! $company->updated_at !!}</span></small>
+                                </p>
                             </li>
                         @endforeach
                     </ul>
