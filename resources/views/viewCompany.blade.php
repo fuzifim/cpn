@@ -16,6 +16,10 @@
                     </div>
                     <div class="btn-group d-flex" role="group"><a class="btn btn-success w-100" href="https://cungcap.net" target="_blank"><h4>Đăng tin miễn phí</h4></a></div>
                 </div>
+                <div class="form-group mt-2">
+                    <ins class="adsbygoogle" data-ad-client="ca-pub-6739685874678212" data-ad-slot="7536384219" data-ad-format="auto"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">{!! $company->Title !!}</h5>
@@ -57,6 +61,10 @@
                         @if(!empty($company->LoaiHinhTitle))<p class="card-text"><strong>Loại hình hoạt động:</strong> {!! $company->LoaiHinhTitle !!}</p>@endif
                         @if(!empty($company->NganhNgheTitle))<p class="card-text"><strong>Ngành nghề:</strong> {!! $company->NganhNgheTitle !!}</p>@endif
                     </div>
+                </div>
+                <div class="form-group mt-2">
+                    <ins class="adsbygoogle" data-ad-client="ca-pub-6739685874678212" data-ad-slot="7536384219" data-ad-format="auto"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
                 </div>
                 <div class="form-group">
                     @if(count($listRelate))
