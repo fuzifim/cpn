@@ -23,15 +23,8 @@ class IndexController extends Controller
     }
     public function index(Request $request)
     {
-        $page = $request->has('page') ? $request->query('page') : 1;
-        $listNew = Cache::store('memcached')->remember('listNew',1, function()
-        {
-            return DB::table('company')->orderBy('updated_at','desc')->take(15)->get();
-        });
-        $listCompany = Cache::store('memcached')->remember('listCompany_page_'.$page,1, function()
-        {
-            return DB::table('company')->simplePaginate(15);
-        });
+        $listNew = DB::table('company')->orderBy('updated_at','desc')->take(15)->get();
+        $listCompany = DB::table('company')->simplePaginate(15);
         return view('index',array(
             'listNew'=>$listNew,
             'listCompany'=>$listCompany
@@ -40,21 +33,12 @@ class IndexController extends Controller
     public function viewCompany(Request $request){
         $mst = $request->route('mst');
         if(!empty($mst)){
-            $company = Cache::store('memcached')->remember('company_mst_'.$mst,1, function() use ($mst)
-            {
-                return DB::table('company')->where('MaSoThue',$mst)->first();
-            });
+            $company = DB::table('company')->where('MaSoThue',$mst)->first();
             if(!empty($company->Title)){
-                $listNew = Cache::store('memcached')->remember('listNew',1, function()
-                {
-                    return DB::table('company')->orderBy('updated_at','desc')->take(15)->get();
-                });
-                $listRelate = Cache::store('memcached')->remember('listRelate_id_'.$company->id,1, function() use ($company)
-                {
-                    return DB::table('company')->where('NganhNgheID',$company->NganhNgheID)
-                        ->where('id','!=',$company->id)
-                        ->take(10)->get();
-                });
+                $listNew = DB::table('company')->orderBy('updated_at','desc')->take(15)->get();
+                $listRelate = DB::table('company')->where('NganhNgheID',$company->NganhNgheID)
+                    ->where('id','!=',$company->id)
+                    ->take(10)->get();
                 return view('viewCompany',array(
                     'listNew'=>$listNew,
                     'company'=>$company,
